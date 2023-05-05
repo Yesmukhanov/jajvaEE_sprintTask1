@@ -6,6 +6,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/home">all tasks</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                </li>
             </ul>
         </div>
     </div>

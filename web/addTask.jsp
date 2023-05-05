@@ -32,7 +32,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-10">
-            <button class="btn btn-primary btn-close">Add Task</button>
+            <button class="btn btn-primary btn-lg">Add Task</button>
         </div>
     </div>
 

@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.bitlab.techorda.db.DBConnection;
 import kz.bitlab.techorda.db.DBManager;
 import kz.bitlab.techorda.db.Tasks;
 
@@ -23,7 +24,7 @@ public class AddTaskServlet extends HttpServlet {
         task.setName(name);
         task.setDescription(desc);
         task.setDeadlineDate(deadline);
-        DBManager.addTask(task);
+        DBConnection.addTask(task);
 
         response.sendRedirect("/home");
     }

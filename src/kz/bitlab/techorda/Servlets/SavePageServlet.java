@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.bitlab.techorda.db.DBConnection;
 import kz.bitlab.techorda.db.DBManager;
 import kz.bitlab.techorda.db.Tasks;
 
@@ -21,7 +22,7 @@ public class SavePageServlet extends HttpServlet {
         String deadline = request.getParameter("taskDeadline");
         String status = request.getParameter("task");
 
-        Tasks task = DBManager.getTask(id);
+        Tasks task = DBConnection.getTask(id);
 
         if (task != null) {
             task.setName(name);
@@ -32,7 +33,7 @@ public class SavePageServlet extends HttpServlet {
             } else {
                 task.setStasus(true);
             }
-            DBManager.updateTask(task);
+            DBConnection.updateTask(task);
             response.sendRedirect("/details?task_id=" + id);
         } else {
             response.sendRedirect("/home");
