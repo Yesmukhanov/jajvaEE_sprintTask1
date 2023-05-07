@@ -129,4 +129,24 @@ public class DBConnection {
 
     }
 
+    public static User getUser(String email){
+        User user = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement("" +
+                    "SELECT  * FROM users where email = ?");
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                user = new User();
+                user.setId(resultSet.getLong("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setFull_name(resultSet.getString("full_name"));
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return user;
+    }
+
 }
